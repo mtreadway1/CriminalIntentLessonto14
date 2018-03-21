@@ -20,7 +20,7 @@ public class CrimeLab {
         mCrimes = new ArrayList<Crime>();
         for(int i = 0; i < 100; i++){
             Crime crime = new Crime();
-            crime.setTitle("Crime #");
+            crime.setTitle("Crime #" + i);
             //all odds will be false, all evens will be true
             crime.setSolved(i % 2 == 0);
             crime.setRequiresPolice(i % 2 == 0);
