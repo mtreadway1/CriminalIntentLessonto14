@@ -16,16 +16,24 @@ public class CrimeLab {
         return sCrimelab;
     }
 
+    public void addCrime(Crime c){
+        mCrimes.add(c);
+    }
+
+    public void deleteCrime(Crime c){
+        mCrimes.remove(c);
+    }
+
     private CrimeLab(Context context){
         mCrimes = new ArrayList<Crime>();
-        for(int i = 0; i < 100; i++){
+       /* for(int i = 0; i < 100; i++){
             Crime crime = new Crime();
             crime.setTitle("Crime #" + i);
             //all odds will be false, all evens will be true
             crime.setSolved(i % 2 == 0);
             crime.setRequiresPolice(i % 2 == 0);
             mCrimes.add(crime);
-        }
+        }*/
 
     }
 
@@ -34,10 +42,11 @@ public class CrimeLab {
     }
 
     public Crime getCrime(UUID id){
-        for(Crime crime : mCrimes){
-            if(crime.getId().equals(id))
-                return crime;
-        }
+        Crime crime = new Crime();
+        crime.setId(id);
+        int index = mCrimes.indexOf(crime);
+        if(index >= 0)
+            return mCrimes.get(index);
         return null;
     }
 }

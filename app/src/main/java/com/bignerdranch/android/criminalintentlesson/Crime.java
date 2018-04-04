@@ -1,21 +1,25 @@
 package com.bignerdranch.android.criminalintentlesson;
 
 
+
 import java.util.Date;
 import java.util.UUID;
 
 public class Crime {
-
 
     private UUID mId;
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
     private boolean mRequiresPolice;
+    private Date mTime;
+
+
 
     public Crime(){
         setId(UUID.randomUUID());
         setDate(new Date());
+        setTime(new Date());
     }
 
     public UUID getId() {
@@ -54,5 +58,19 @@ public class Crime {
 
     public void setRequiresPolice(boolean mRequiresPolice) {this.mRequiresPolice = mRequiresPolice;}
 
+    public Date getTime() {return mTime;}
+
+    public void setTime(Date mTime){this.mTime = mTime; }
+
+    //Search Improvement
+    @Override
+    public boolean equals(Object c){
+        if(this == c)
+            return true;
+        if(!(c instanceof Crime))
+            return false;
+        Crime cr = (Crime)c;
+        return this.getId().equals(cr.getId());
+    }
 
 }
