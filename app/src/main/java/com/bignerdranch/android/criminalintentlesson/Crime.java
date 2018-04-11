@@ -1,7 +1,5 @@
 package com.bignerdranch.android.criminalintentlesson;
 
-
-
 import java.util.Date;
 import java.util.UUID;
 
@@ -14,57 +12,64 @@ public class Crime {
     private boolean mRequiresPolice;
     private Date mTime;
 
-
-
-    public Crime(){
+    public Crime() {
         setId(UUID.randomUUID());
-        setDate(new Date());
-        setTime(new Date());
+        mDate = new Date();
+        mTime = new Date();
+    }
+
+    public Crime(UUID id) {
+        mId = id;
+        mDate = new Date();
+        mTime = new Date();
     }
 
     public UUID getId() {
         return mId;
     }
 
-    public void setId(UUID mId){
+    public void setId(UUID mId) {
         this.mId = mId;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return mTitle;
     }
 
-    public void setTitle(String mTitle){
+    public void setTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public Date getDate(){
+    public Date getDate() {
         return mDate;
     }
 
-    public void setDate(Date mDate){
+    public void setDate(Date mDate) {
         this.mDate = mDate;
     }
 
-    public boolean isSolved(){
+    public boolean isSolved() {
         return mSolved;
     }
 
-    public void setSolved(boolean mSolved){
+    public void setSolved(boolean mSolved) {
         this.mSolved = mSolved;
     }
 
-    public boolean requiresPolice() {return mRequiresPolice; }
+    public boolean requiresPolice() {
+        return mRequiresPolice;
+    }
 
-    public void setRequiresPolice(boolean mRequiresPolice) {this.mRequiresPolice = mRequiresPolice;}
+    public void setRequiresPolice(boolean mRequiresPolice) {
+        this.mRequiresPolice = mRequiresPolice;
+    }
 
-    public Date getTime() {return mTime;}
+    public Date getTime() { return mTime; }
 
-    public void setTime(Date mTime){this.mTime = mTime; }
+    public void setTime(Date mTime) { this.mTime = mTime; }
 
-    //Search Improvement
     @Override
-    public boolean equals(Object c){
+    public boolean equals(Object c) {
         if(this == c)
             return true;
         if(!(c instanceof Crime))
@@ -72,5 +77,4 @@ public class Crime {
         Crime cr = (Crime)c;
         return this.getId().equals(cr.getId());
     }
-
 }

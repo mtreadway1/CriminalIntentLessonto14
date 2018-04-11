@@ -118,6 +118,7 @@ public class CrimeListFragment extends Fragment{
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         }else {
+            mAdapter.setCrimes(crimes);
             if(mUpdatedCrimeId != null){
                 mAdapter.notifyItemChanged(crimes.indexOf(crimeLab.getCrime(mUpdatedCrimeId)));
             }
@@ -217,6 +218,10 @@ public class CrimeListFragment extends Fragment{
                 return REQUIRES_POLICE;
             else
                 return DOESNT_REQUIRE_POLICE;
+        }
+
+        public void setCrimes(List<Crime> crimes){
+            mCrimes = crimes;
         }
 
 
